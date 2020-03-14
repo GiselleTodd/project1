@@ -7,6 +7,11 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for
+from flask_login import login_user, logout_user, current_user, login_required
+from .forms import ProfileForm
+from .models import UserProfile
+
+
 
 
 ###
@@ -22,7 +27,28 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html')
+
+@app.route('/profile', methods=['GET','POST'])
+def profile():
+    form = ProfileForm()
+    if form.validate_on_submit():
+        #m = UserProfile()
+        #m.first_name = form.firstname.data
+        #m.last_name = form.lastname.data
+        #m.bio = form.biography.data
+        #db.session.add(m)
+        return render_template('test.html')
+    return render_template('profile.html', form=form)
+
+@app.route('/profiles')
+def vprofiles():
+    return "This returns a list of profiles"
+
+@app.route('/profile/<userid>')
+def uprofile(userid):
+    pass
+
 
 
 ###
