@@ -5,11 +5,15 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 
+import os
+from datetime import date
 from app import app
-from flask import render_template, request, redirect, url_for
+from app import db
+from flask import render_template, request, redirect, url_for,flash
 from flask_login import login_user, logout_user, current_user, login_required
 from .forms import ProfileForm
 from .models import UserProfile
+from werkzeug.utils import secure_filename
 
 
 
@@ -33,22 +37,31 @@ def about():
 def profile():
     form = ProfileForm()
     if form.validate_on_submit():
-        #m = UserProfile()
-        #m.first_name = form.firstname.data
-        #m.last_name = form.lastname.data
-        #m.bio = form.biography.data
-        #db.session.add(m)
-        return render_template('test.html')
+
+            f = request.files['profilepicture']
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
+            url = f.filename
+            user = UserProfile(firstname=form.firstname.data, lastname=form.lastname.data, email=form.email.data, biography=form.biography.data, gender=form.gender.data, profilepicture=url, datejoined=format_date_joined())
+            db.session.add(user)
+            db.session.commit()
+
+            flash('Profile has been saved', 'success')
+            return redirect(url_for('vprofiles'))
     return render_template('profile.html', form=form)
 
 @app.route('/profiles')
 def vprofiles():
-    return "This returns a list of profiles"
+    profiles = UserProfile.query.filter_by().all()
+    return render_template('profiles.html', profiles=profiles)
 
 @app.route('/profile/<userid>')
 def uprofile(userid):
-    pass
+    profile = UserProfile.query.filter_by(id = userid).first()
+    return render_template('single.html', profile=profile)
 
+#This function formats the date joined to present the Month and Year
+def format_date_joined():
+    return date.today().strftime("%B, %Y")
 
 
 ###

@@ -1,23 +1,29 @@
 from . import db
 
+
+
 class UserProfile(db.Model):
     __tablename__ = 'user_profiles'
 
     id = db.Column(db.Integer(), primary_key=True)
-    first_name = db.Column(db.String(80), nullable=False)
-    last_name = db.Column(db.String(80), nullable=False)
+    firstname = db.Column(db.String(80), nullable=False)
+    lastname = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(40), nullable=False)
-    bio = db.Column(db.String(150))
+    biography = db.Column(db.String(150))
     gender = db.Column(db.String(10))
-    profilephoto = db.Column(db.String(255))
+    location = db.Column(db.String(80))
+    profilepicture= db.Column(db.String(255))
+    datejoined = db.Column(db.String(20))
 
-    def __init__(self, first_name, last_name, email, bio, gender, profilephoto):
-        self.first_name = first_name
-        self.last_name = last_name
+    def __init__(self, firstname, lastname, email, biography, gender, location, profilepicture, datejoined):
+        self.firstname = firstname
+        self.lastname = lastname
         self.email = email
-        self.bio = bio
+        self.biography = biography
         self.gender = gender
-        self.profilephoto = profilephoto
+        self.profilepicture = profilepicture
+        self.datejoined = datejoined
+        self.location = location
 
     def is_authenticated(self):
         return True

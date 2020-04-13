@@ -1,3 +1,69 @@
 body {
     padding-top: 50px;
 }
+
+
+.flashes {
+  background-color: green;
+  padding: 20px 20px ;
+}
+
+.flex-container{
+  display:flex;
+  flex-direction: column;
+  align-content: space-between;
+  text-align: center;
+  width: 100%;
+}
+
+.flex-container > div{
+  margin: 10px 10px;
+  padding: 20px 20px;
+  display: block;
+}
+
+
+button {
+  background-color: green;
+  align: right;
+  float: right;
+}
+
+.pfile {
+  display: flex;
+  border-style: solid;
+}
+
+.propic{
+  float:left;
+  border-radius: 100px;
+}
+
+.about {
+  display: inline-block;
+  align-items: center;
+
+}
+
+.profile{
+  display: grid;
+  border: double:
+}
+
+.single{
+  display: flex;
+  border-top-style: solid;
+  border-top-color: blue;
+
+  margin: 100px 50px;
+  height: auto;
+  width:100%;
+}
+
+.imgg{
+  float: left;
+}
+
+.addinfo{
+  display: inline;
+}

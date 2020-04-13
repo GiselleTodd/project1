@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+{% with messages = get_flashed_messages() %}
+         {% if messages %}
+              <ul class="flashes">
+              {% for message in messages %}
+                  <li>{{ message }}</li>
+              {% endfor %}
+              </ul>
+         {% endif %}
+      {% endwith %}
+
+<h1> Profiles </h1>
+
+
+
+
+
+<div class="flex-container">
+<p>this starts a new profiles</p>
+      {% for profile in profiles %}
+        <div class="pfile">
+            <div class="propic">
+              <img src="{{ url_for('static', filename=('images/' + profile.profilepicture)) }}" alt="User Profile IMage" class="img-thumbnail" height=100 width=100>
+            </div>
+
+          <div class="about">
+            <h3>{{ profile.firstname }} {{ profile.lastname }}</h3>
+            <ul>
+              <li> {{ profile.location }}</li>
+              <li>{{ profile.gender }}</li>
+            </ul>
+          </div>
+
+          <button type="button" onclick="window.location.href='{{ url_for('uprofile', userid=profile.id) }}'" name="button"> View Profile </button>
+        </div>
+     {% endfor %}
+</div>
+
+
+{% endblock %}
