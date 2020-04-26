@@ -2,29 +2,28 @@
 
 {% block main %}
 
-<div class="flex-container single">
+<div class="single">
    <div class="profile">
-     <div class="pic">
-       <img src="{{ url_for('static', filename=('images/' + profile.profilepicture)) }}" alt="User Profile IMage" class="imggg" height=200px width="300px">
-    </div>
-    <div class="who">
-    <h3 class="main">  {{ profile.firstname }} {{ profile.lastname }} </h3>
+       <img class="ppic" src="{{ url_for('static', filename=('images/' + profile.profilepicture)) }}" alt="User Profile IMage" class="imggg" height=200px width="300px">
 
-    <ul class="addinfo">
-      <li>{{ profile.email }}</li>
-      <li>{{ profile.location }}</li>
-      <li>{{ profile.datejoined }}</li>
-    </ul>
-
-    </div>
-
-     <div class="aboutme">
-       <h4> About Me </h4>
-       <p>{{ profile.biography }}</p>
-       <button type="button" name="button"> Send Message </button>
-       <button type="button" name="button"> Follow </button>
-     </div>
+   <div class="aboutme">
+     <h4> About Me </h4>
+     <p>{{ profile.biography }}</p>
+     <button class="do-stuff" type="button" name="button"> Send Message </button>
+     <button class="do-stuff" type="button" name="button"> Follow </button>
    </div>
+  </div>
+
+  <div class="who">
+    <h3 class="main">  {{ profile.firstname }} {{ profile.lastname }} </h3>
+    <ul class="addinfo">
+      <li> <img src="https://img.icons8.com/metro/26/000000/email.png"/> {{ profile.email }}</li>
+      <li> <img src="https://img.icons8.com/material/24/000000/worldwide-location--v1.png"/> {{ profile.location }}</li>
+      <li> <img src="https://img.icons8.com/metro/26/000000/date-to.png"/> {{ profile.datejoined }}</li>
+    </ul>
+  </div>
+
+
 </div>
 
 

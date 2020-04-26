@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main%}
-<h1>Add Profile</h1>
+<h1 class="form-text">Add Profile</h1>
 
 <form action="{{ url_for('profile')}}" method="POST" enctype="multipart/form-data">
 {{ form.csrf_token }}
@@ -35,8 +35,5 @@
 
     <button type="submit" name="button" class="submit">Add Profile</button>
 </form>
-
-
-
 
 {% endblock %}

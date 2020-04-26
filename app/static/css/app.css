@@ -1,5 +1,6 @@
 body {
-    padding-top: 50px;
+    padding-top: 5rem;
+
 }
 
 
@@ -8,62 +9,143 @@ body {
   padding: 20px 20px ;
 }
 
-.flex-container{
-  display:flex;
-  flex-direction: column;
-  align-content: space-between;
+/* Profile form*/
+form {
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-top: 5px solid #4a94ff;
+  width: 60%;
+  height: 200%;
+  border-radius: 5px;
+  box-shadow: 1px 3px 4px gray;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.submit{
+    align-content: center;
+    background-color: #50ff40;
+    border-radius: 5px;
+}
+
+.form-group {
+    font-weight: bold;
+    font-family:sans-serif;
+}
+
+.form-text{
   text-align: center;
-  width: 100%;
 }
 
-.flex-container > div{
-  margin: 10px 10px;
-  padding: 20px 20px;
-  display: block;
+input[type=text]{
+    width:100%;
+    border-radius: 5px;
 }
 
+textarea{
+    width: 100%;
+    padding : 10px 20px;
+}
 
-button {
-  background-color: green;
-  align: right;
-  float: right;
+/* Profiles Page*/
+
+.flex-container {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  grid-gap: 30px;
+  align-content:center;
+  margin-right: auto;
+  margin-left: auto;
+
 }
 
 .pfile {
-  display: flex;
-  border-style: solid;
-}
-
-.propic{
-  float:left;
-  border-radius: 100px;
-}
-
-.about {
+  border-radius: 10px;
+  padding:5px 30px 5px 10px;
   display: inline-block;
-  align-items: center;
-
-}
-
-.profile{
-  display: grid;
-  border: double:
-}
-
-.single{
-  display: flex;
-  border-top-style: solid;
-  border-top-color: blue;
-
-  margin: 100px 50px;
-  height: auto;
+  border-top: 3px solid blue;
+  box-shadow: 1px 3px 4px gray;
   width:100%;
 }
 
-.imgg{
+.propic{
   float: left;
+  margin-right: 5%;
+}
+
+.img-thumbnail{
+  height:200px;
+  width: 200px;
+}
+
+.about{
+  float: left;
+  padding-top:20px;
+  text-align: left;
+}
+
+.view-profile{
+  color: white;
+  background-color: #17d146;
+  border-radius: 5px;
+  float: right;
+  margin-top: 80px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.about-info{
+  list-style: none;
+  line-height: 30px;
+}
+
+.headin{
+  text-align: center;
+}
+
+/* Individual Profile*/
+
+.single{
+  display:flex;
+  padding: 30px 20px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 5px solid blue;
+  border-radius: 5px;
+  box-shadow: 1px 3px 4px gray;
+}
+
+.who {
+  display: inline-block;
+  margin-top: 30px;
+  line-height: 30px;
+}
+
+.ppic {
+  margin-right: 40px;
+  margin-bottom: 30px;
+}
+
+.main{
+  text-align: center;
 }
 
 .addinfo{
-  display: inline;
+  list-style: none;
+  text-align: left;
+}
+
+.do-stuff{
+  margin-right: 30px;;
+  background-color: #17d146;
+  color: white;
+  padding-left: 40px;
+  padding-right: 40px;
 }
